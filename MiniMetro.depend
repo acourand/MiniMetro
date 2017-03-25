@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1490445280 source:d:\télécom\workspace_c\minimetro\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
