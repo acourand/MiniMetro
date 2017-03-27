@@ -57,11 +57,11 @@ int sortiePersonneStation(File **p_p_file)
     return retour;
 }
 
-void videStation(File **p_p_file)
+void videStation(File **p_p_file) // Fonction récursive
 {
-    while (*p_p_file != NULL) // Tant que la station n'est pas vide.
-    {
-        sortiePersonneStation(p_p_file); // On enlève la première personne
+    if(*p_p_file != NULL){
+        sortiePersonneStation(p_p_file); // On enlève la dernière personne
+        videStation(p_p_file);
     }
 }
 
@@ -124,11 +124,11 @@ int sortiePersonneMetro(Pile **p_p_pile)
     return retour;
 }
 
-void videMetro(Pile **p_p_pile)
+void videMetro(Pile **p_p_pile) // Fonction récursive
 {
-    while (*p_p_pile != NULL) // Tant que le métro n'est pas vide.
-    {
+    if(*p_p_pile != NULL){
         sortiePersonneMetro(p_p_pile); // On enlève la dernière personne
+        videMetro(p_p_pile);
     }
 }
 
@@ -196,6 +196,7 @@ int main()
     int direction = 0; // 0 droite, 1 gauche
     int position = 4; // position de départ dans la chaine du métro
     int nbPersonneChangement = 0;
+    int i;
 
     listeChainee *listeStation = NULL;
 
@@ -218,9 +219,21 @@ int main()
                 remplissageStation(&stationB,position);
                 metroDessin[position]='=';
                 metroDessin[position+1]='>';
-                printf("Nombre de personnes dans le métro : %d\n", tailleMetro(&metro));
-                printf("Nombre de personnes dans le metro A : %d\n", tailleStation(&stationA));
-                printf("Nombre de personnes dans le metro B : %d\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", tailleStation(&stationB));
+                printf("Nombre de personnes dans le metro : %d\n", tailleMetro(&metro));
+                 for(i=0;i< tailleMetro(&metro);i++){
+                    printf("|");
+                }
+                printf("\n");
+                printf("Nombre de personnes dans la station A : %d\n", tailleStation(&stationA));
+                for(i=0;i< tailleStation(&stationA);i++){
+                    printf("|");
+                }
+                printf("\n");
+                printf("Nombre de personnes dans la station B : %d\n", tailleStation(&stationB));
+                for(i=0;i< tailleStation(&stationB);i++){
+                    printf("|");
+                }
+                printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                 printf("%s\n",metroDessin);
                 Sleep(300);
             }
@@ -240,8 +253,20 @@ int main()
                 metroDessin[position]='=';
                 metroDessin[position-1]='<';
                 printf("Nombre de personnes dans le metro : %d\n", tailleMetro(&metro));
+                for(i=0;i< tailleMetro(&metro);i++){
+                    printf("|");
+                }
+                printf("\n");
                 printf("Nombre de personnes dans la station A : %d\n", tailleStation(&stationA));
-                printf("Nombre de personnes dans le station B : %d\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", tailleStation(&stationB));
+                for(i=0;i< tailleStation(&stationA);i++){
+                    printf("|");
+                }
+                printf("\n");
+                printf("Nombre de personnes dans le station B : %d\n", tailleStation(&stationB));
+                for(i=0;i< tailleStation(&stationB);i++){
+                    printf("|");
+                }
+                printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                 printf("%s\n",metroDessin);
                 Sleep(300);
             }
