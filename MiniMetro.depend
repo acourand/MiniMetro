@@ -30,3 +30,19 @@
 	"piles.h"
 	<stdlib.h>
 
+1490619315 source:c:\users\florent\documents\work\telecom\info\minimetro\files.c
+	<stdio.h>
+	<stdlib.h>
+	"files.h"
+
+1490619315 c:\users\florent\documents\work\telecom\info\minimetro\files.h
+
+1490619315 source:c:\users\florent\documents\work\telecom\info\minimetro\listes.c
+	<stdio.h>
+	<stdlib.h>
+	"listes.h"
+	"files.h"
+
+1490619315 c:\users\florent\documents\work\telecom\info\minimetro\listes.h
+	"files.h"
+
