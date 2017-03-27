@@ -1,0 +1,3 @@
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/cmake-build-debug/CMakeFiles/edit_cache.dir
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/cmake-build-debug/CMakeFiles/MiniMetro.dir

@@ -1,0 +1,58 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/files.c
+stdio.h
+-
+stdlib.h
+-
+files.h
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/files.h
+
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/files.h
+
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/listes.c
+stdio.h
+-
+stdlib.h
+-
+listes.h
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/listes.h
+piles.h
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/piles.h
+
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/listes.h
+files.h
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/files.h
+
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/main.c
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+windows.h
+-
+piles.h
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/piles.h
+files.h
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/files.h
+listes.h
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/listes.h
+
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/piles.c
+piles.h
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/piles.h
+stdlib.h
+-
+
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/piles.h
+listes.h
+/var/data/Cours/Télécom/Langage C/project_minimetro/MiniMetro/listes.h
+

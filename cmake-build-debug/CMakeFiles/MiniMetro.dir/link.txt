@@ -1,0 +1,1 @@
+/usr/bin/cc  -g   CMakeFiles/MiniMetro.dir/main.c.o CMakeFiles/MiniMetro.dir/files.c.o CMakeFiles/MiniMetro.dir/piles.c.o CMakeFiles/MiniMetro.dir/listes.c.o  -o MiniMetro 
