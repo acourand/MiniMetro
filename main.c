@@ -18,6 +18,7 @@ int main()
     int nbPersonneChangement = 0;
     int i;
 
+
     listeChainee *listeStation = NULL;
 
     File *stationA = NULL;

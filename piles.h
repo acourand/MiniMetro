@@ -1,7 +1,3 @@
-//
-// Created by pierre on 27/03/17.
-//
-
 #ifndef MINIMETRO_PILES_H
 #define MINIMETRO_PILES_H
 
@@ -20,5 +16,6 @@ int sortiePersonneMetro(Pile **p_p_pile);
 void videMetro(Pile **p_p_pile);
 
 int tailleMetro(Pile **p_p_pile);
-void ajouterEnFin(listeChainee *liste, File *station)
+void ajouterEnFin(listeChainee *liste, File *station);
+
 #endif //MINIMETRO_PILES_H

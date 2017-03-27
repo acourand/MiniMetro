@@ -1,12 +1,11 @@
-//
-// Created by pierre on 27/03/17.
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "listes.h"
-#include "piles.h"
+#include "files.h"
 
-void ajouterEnFin(listeChainee *liste, File *station) {
+void ajouterEnFin(listeChainee *liste, File *station)
+{
     listeChainee *nouvelElement = malloc(sizeof(listeChainee)); // On crée un nouvel élément
 
     nouvelElement->station = station; // On met la valeur à l'élément
@@ -25,4 +24,3 @@ void ajouterEnFin(listeChainee *liste, File *station) {
         temp->nxt = nouvelElement;
     }
 }
-
