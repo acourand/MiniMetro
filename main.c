@@ -53,8 +53,8 @@ int main(){
     File *stationA = NULL;
     File *stationB = NULL;
 
-    ajouterEnFin(listeStation,stationA);
-    ajouterEnFin(listeStation,stationB);
+    ajouterEnFin(&listeStation,stationA);
+    ajouterEnFin(&listeStation,stationB);
 
     Pile *metro = NULL;
 
@@ -62,31 +62,31 @@ int main(){
         if(direction == 0){
             for(position=debutLigneMetro ; position<finLigneMetro ; position++){
                 if(position%2==0){
-                    remplissageStation(&stationA,position);
+                    remplissageStation(&(listeStation->station),position);
                 }
-                remplissageStation(&stationB,position);
-                affichageConsole(metroDessin,position,metro,stationA,stationB,direction);
+                remplissageStation(&(listeStation->nxt->station),position);
+                affichageConsole(metroDessin,position,metro,listeStation->station,listeStation->nxt->station,direction);
             }
             videMetro(&metro);
-            for(nbPersonneChangement = 0;nbPersonneChangement<tailleStation(&stationB);nbPersonneChangement++){
+            for(nbPersonneChangement = 0;nbPersonneChangement<tailleStation(&(listeStation->nxt->station));nbPersonneChangement++){
                 remplissageMetro(&metro,nbPersonneChangement);
             }
-            videStation(&stationB);
+            videStation(&(listeStation->nxt->station));
             direction=1;
         }
         else{
             for(position=finLigneMetro ; position>debutLigneMetro ; position--){
                 if(position%2==0){
-                    remplissageStation(&stationA,position);
+                    remplissageStation(&(listeStation->station),position);
                 }
-                remplissageStation(&stationB,position);
-                affichageConsole(metroDessin,position,metro,stationA,stationB,direction);
+                remplissageStation(&(listeStation->nxt->station),position);
+                affichageConsole(metroDessin,position,metro,stationA,listeStation->nxt->station,direction);
             }
             videMetro(&metro);
-            for(nbPersonneChangement = 0;nbPersonneChangement<tailleStation(&stationA);nbPersonneChangement++){
+            for(nbPersonneChangement = 0;nbPersonneChangement<tailleStation(&(listeStation->station));nbPersonneChangement++){
                 remplissageMetro(&metro,nbPersonneChangement);
             }
-            videStation(&stationA);
+            videStation(&(listeStation->station));
             direction=0;
         }
         Sleep(2000);

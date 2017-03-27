@@ -12,7 +12,6 @@ typedef struct liste {
     struct liste *nxt;
 } listeChainee;
 
-void ajouterEnFin(listeChainee *liste, File *station);
-
+void ajouterEnFin(listeChainee **liste, File *station);
 
 #endif //MINIMETRO_LISTES_H
