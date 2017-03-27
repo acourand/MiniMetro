@@ -50,11 +50,11 @@ int sortiePersonneStation(File **p_p_file) {
     return retour;
 }
 
-void videStation(File **p_p_file) // Fonction récursive
+void videStation(File **p_p_file, int nb) // Fonction récursive
 {
-    if(*p_p_file != NULL){
+    int i;
+     for(i=0;i<nb;i++){
         sortiePersonneStation(p_p_file); // On enlève la dernière personne
-        videStation(p_p_file);
     }
 }
 

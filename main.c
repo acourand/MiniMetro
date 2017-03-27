@@ -68,10 +68,10 @@ int main(){
                 affichageConsole(metroDessin,position,metro,listeStation->station,listeStation->nxt->station,direction);
             }
             videMetro(&metro);
-            for(nbPersonneChangement = 0;nbPersonneChangement<tailleStation(&(listeStation->nxt->station));nbPersonneChangement++){
+            for(nbPersonneChangement = 0;nbPersonneChangement<tailleStation(&(listeStation->nxt->station)) && nbPersonneChangement<15;nbPersonneChangement++){
                 remplissageMetro(&metro,nbPersonneChangement);
             }
-            videStation(&(listeStation->nxt->station));
+            videStation(&(listeStation->nxt->station),15);
             direction=1;
         }
         else{
@@ -80,13 +80,13 @@ int main(){
                     remplissageStation(&(listeStation->station),position);
                 }
                 remplissageStation(&(listeStation->nxt->station),position);
-                affichageConsole(metroDessin,position,metro,stationA,listeStation->nxt->station,direction);
+                affichageConsole(metroDessin,position,metro,listeStation->station,listeStation->nxt->station,direction);
             }
             videMetro(&metro);
-            for(nbPersonneChangement = 0;nbPersonneChangement<tailleStation(&(listeStation->station));nbPersonneChangement++){
+            for(nbPersonneChangement = 0;nbPersonneChangement<tailleStation(&(listeStation->station)) && nbPersonneChangement<15;nbPersonneChangement++){
                 remplissageMetro(&metro,nbPersonneChangement);
             }
-            videStation(&(listeStation->station));
+            videStation(&(listeStation->station),15);
             direction=0;
         }
         Sleep(2000);

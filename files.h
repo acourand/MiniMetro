@@ -11,7 +11,7 @@ void remplissageStation(File **p_p_file, int personne);
 
 int sortiePersonneStation(File **p_p_file);
 
-void videStation(File **p_p_file);
+void videStation(File **p_p_file, int nb);
 int tailleStation(File **p_p_file);
 
 
