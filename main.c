@@ -1,41 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
-//#include <richedit.h>
-//#include <unistd.h>
 
 
 /* *********************************************** FILE ******************************************************************** */
 
 typedef struct file // station de metro, first in first out
 {
-    int personne; // Entier désignant une personne
-    struct file *suivant; // Lien vers l'élément suivant
+    int personne; // Entier dÃ©signant une personne
+    struct file *suivant; // Lien vers l'Ã©lÃ©ment suivant
 } File;
 
 void remplissageStation(File **p_p_file, int personne) // permet d'ajouter une personne dans une station (en queue de file)
 {
-    File *p_nouveau = malloc(sizeof *p_nouveau); // On créé un nouvel element
+    File *p_nouveau = malloc(sizeof *p_nouveau); // On crÃ©Ã© un nouvel element
 
-    if (p_nouveau != NULL) // Si création okay
+    if (p_nouveau != NULL) // Si crÃ©ation okay
     {
-        p_nouveau->suivant = NULL; // On met à NULL le suivant car c'est le dernier élément
+        p_nouveau->suivant = NULL; // On met Ã  NULL le suivant car c'est le dernier Ã©lÃ©ment
 
         p_nouveau->personne = personne; // On lui assigne la personne
 
         if (*p_p_file == NULL) // Si la file est vide
         {
-            *p_p_file = p_nouveau; //notre file pointera sur le premier élément
+            *p_p_file = p_nouveau; //notre file pointera sur le premier Ã©lÃ©ment
         }
         else
         {
-            File *p_tmp = *p_p_file; // Création d'un élément temporaire pointant sur notre file
+            File *p_tmp = *p_p_file; // CrÃ©ation d'un Ã©lÃ©ment temporaire pointant sur notre file
 
-            while (p_tmp->suivant != NULL) // On parcourt la file jusqu'a udernier élément
+            while (p_tmp->suivant != NULL) // On parcourt la file jusqu'a udernier Ã©lÃ©ment
             {
                 p_tmp = p_tmp->suivant;
             }
-            p_tmp->suivant = p_nouveau; // On pointe vers le nouvel élément
+            p_tmp->suivant = p_nouveau; // On pointe vers le nouvel Ã©lÃ©ment
         }
     }
 }
@@ -46,15 +44,15 @@ int sortiePersonneStation(File **p_p_file)
 
     if (*p_p_file != NULL) // si le file n'est pas vide
     {
-        File *p_tmp = (*p_p_file)->suivant; // élément temporaire vers le deuxième élément de la file
+        File *p_tmp = (*p_p_file)->suivant; // Ã©lÃ©ment temporaire vers le deuxiÃ¨me Ã©lÃ©ment de la file
 
         retour = (*p_p_file)->personne; // On retourne la personne
 
-        free(*p_p_file); // On libère la file
+        free(*p_p_file); // On libÃ¨re la file
 
-        *p_p_file = NULL; // On remet à null le pointeur au cas ou
+        *p_p_file = NULL; // On remet Ã  null le pointeur au cas ou
 
-        *p_p_file = p_tmp; // On pointe la file vers le deuxième élément
+        *p_p_file = p_tmp; // On pointe la file vers le deuxiÃ¨me Ã©lÃ©ment
     }
     return retour;
 }
@@ -63,7 +61,7 @@ void videStation(File **p_p_file)
 {
     while (*p_p_file != NULL) // Tant que la station n'est pas vide.
     {
-        sortiePersonneStation(p_p_file); // On enlève la première personne
+        sortiePersonneStation(p_p_file); // On enlÃ¨ve la premiÃ¨re personne
     }
 }
 
@@ -71,12 +69,12 @@ int tailleStation(File **p_p_file)
 {
     int i = 1;
 
-    File *p_tmp = *p_p_file; // Création d'un élément temporaire pointant sur notre file
+    File *p_tmp = *p_p_file; // CrÃ©ation d'un Ã©lÃ©ment temporaire pointant sur notre file
     if(p_tmp == NULL){
         return 0;
     }
     if (*p_p_file != NULL){
-        while (p_tmp->suivant != NULL) // On parcourt la file jusqu'a udernier élément
+        while (p_tmp->suivant != NULL) // On parcourt la file jusqu'a udernier Ã©lÃ©ment
         {
             i++;
             p_tmp = p_tmp->suivant;
@@ -89,21 +87,21 @@ int tailleStation(File **p_p_file)
 
 typedef struct pile
 {
-    int personne; // Entier désignant une personne
-    struct pile *precedent; // Lien vers l'élément précédent
+    int personne; // Entier dÃ©signant une personne
+    struct pile *precedent; // Lien vers l'Ã©lÃ©ment prÃ©cÃ©dent
 } Pile;
 
-void remplissageMetro(Pile **p_p_pile, int personne) // permet d'ajouter une personne dans le métro (en tete de pile)
+void remplissageMetro(Pile **p_p_pile, int personne) // permet d'ajouter une personne dans le mÃ©tro (en tete de pile)
 {
-        Pile *p_nouveau = malloc(sizeof *p_nouveau); // On créé un nouvel element
+        Pile *p_nouveau = malloc(sizeof *p_nouveau); // On crÃ©Ã© un nouvel element
 
         if (p_nouveau != NULL) // si ok
         {
                 p_nouveau->personne = personne; // On lui assigne la personne
 
-                p_nouveau->precedent = *p_p_pile; // On lui met le précédent la pile
+                p_nouveau->precedent = *p_p_pile; // On lui met le prÃ©cÃ©dent la pile
 
-                *p_p_pile = p_nouveau; // on fait pointer la pile sur notre élément
+                *p_p_pile = p_nouveau; // on fait pointer la pile sur notre Ã©lÃ©ment
         }
 }
 
@@ -113,24 +111,24 @@ int sortiePersonneMetro(Pile **p_p_pile)
 
     if (p_p_pile != NULL)
     {
-        Pile *temporaire = (*p_p_pile)->precedent; // élément temporaire vers l'avant dernier élément de la file
+        Pile *temporaire = (*p_p_pile)->precedent; // Ã©lÃ©ment temporaire vers l'avant dernier Ã©lÃ©ment de la file
 
         retour = (*p_p_pile)->personne; // On retourne la personne
 
-        free(*p_p_pile);  // On libère la file
+        free(*p_p_pile);  // On libÃ¨re la file
 
-        *p_p_pile = NULL; // On remet à null le pointeur au cas ou
+        *p_p_pile = NULL; // On remet Ã  null le pointeur au cas ou
 
-        *p_p_pile = temporaire; // On pointe la file vers l'avant dernier élément
+        *p_p_pile = temporaire; // On pointe la file vers l'avant dernier Ã©lÃ©ment
     }
     return retour;
 }
 
 void videMetro(Pile **p_p_pile)
 {
-    while (*p_p_pile != NULL) // Tant que le métro n'est pas vide.
+    while (*p_p_pile != NULL) // Tant que le mÃ©tro n'est pas vide.
     {
-        sortiePersonneMetro(p_p_pile); // On enlève la dernière personne
+        sortiePersonneMetro(p_p_pile); // On enlÃ¨ve la derniÃ¨re personne
     }
 }
 
@@ -138,14 +136,14 @@ int tailleMetro(Pile **p_p_pile)
 {
      int i = 1;
 
-    Pile *p_tmp = *p_p_pile; // Création d'un élément temporaire pointant sur notre file
+    Pile *p_tmp = *p_p_pile; // CrÃ©ation d'un Ã©lÃ©ment temporaire pointant sur notre file
 
     if(p_tmp == NULL){
         return 0;
     }
 
     if (*p_p_pile != NULL){
-        while (p_tmp->precedent != NULL) // On parcourt la file jusqu'a udernier élément
+        while (p_tmp->precedent != NULL) // On parcourt la file jusqu'a udernier Ã©lÃ©ment
         {
             i++;
             p_tmp = p_tmp->precedent;
@@ -165,20 +163,20 @@ typedef struct liste
 
 void ajouterEnFin(listeChainee *liste, File *station)
 {
-    listeChainee *nouvelElement = malloc(sizeof(listeChainee)); // On crée un nouvel élément
+    listeChainee *nouvelElement = malloc(sizeof(listeChainee)); // On crÃ©e un nouvel Ã©lÃ©ment
 
-    nouvelElement->station = station; // On met la valeur à l'élément
+    nouvelElement->station = station; // On met la valeur Ã  l'Ã©lÃ©ment
 
-    nouvelElement->nxt = NULL; //On ajoute en fin, donc aucun élément ne va suivre
+    nouvelElement->nxt = NULL; //On ajoute en fin, donc aucun Ã©lÃ©ment ne va suivre
 
     if(liste == NULL)
     {
-        liste = nouvelElement; // Si la liste est vide, on renvoi le nouvel élément
+        liste = nouvelElement; // Si la liste est vide, on renvoi le nouvel Ã©lÃ©ment
     }
     else
     {
-        /* Sinon, on parcourt la liste à l'aide d'un pointeur temporaire et on
-        indique que le dernier élément de la liste est relié au nouvel élément */
+        /* Sinon, on parcourt la liste Ã  l'aide d'un pointeur temporaire et on
+        indique que le dernier Ã©lÃ©ment de la liste est reliÃ© au nouvel Ã©lÃ©ment */
         listeChainee *temp=liste;
         while(temp->nxt != NULL)
         {
@@ -193,10 +191,10 @@ void ajouterEnFin(listeChainee *liste, File *station)
 
 int main()
 {
-    printf("*************Bienvenue sur la simulation d'un mini métro*************\n\n");
+    printf("*************Bienvenue sur la simulation d'un mini mÃ©tro*************\n\n");
     char metroDessin[] = "{A}=>========={B}";
     int direction = 0; // 0 droite, 1 gauche
-    int position = 4; // position de départ dans la chaine du métro
+    int position = 4; // position de dÃ©part dans la chaine du mÃ©tro
     int nbPersonneChangement = 0;
 
     listeChainee *listeStation = NULL;
@@ -220,7 +218,7 @@ int main()
                 remplissageStation(&stationB,position);
                 metroDessin[position]='=';
                 metroDessin[position+1]='>';
-                printf("Nombre de personnes dans le métro : %d\n", tailleMetro(&metro));
+                printf("Nombre de personnes dans le mÃ©tro : %d\n", tailleMetro(&metro));
                 printf("Nombre de personnes dans le metro A : %d\n", tailleStation(&stationA));
                 printf("Nombre de personnes dans le metro B : %d\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", tailleStation(&stationB));
                 printf("%s\n",metroDessin);
@@ -241,9 +239,9 @@ int main()
                 remplissageStation(&stationB,position);
                 metroDessin[position]='=';
                 metroDessin[position-1]='<';
-                printf("Nombre de personnes dans le métro : %d\n", tailleMetro(&metro));
-                printf("Nombre de personnes dans le metro A : %d\n", tailleStation(&stationA));
-                printf("Nombre de personnes dans le metro B : %d\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", tailleStation(&stationB));
+                printf("Nombre de personnes dans le metro : %d\n", tailleMetro(&metro));
+                printf("Nombre de personnes dans la station A : %d\n", tailleStation(&stationA));
+                printf("Nombre de personnes dans le station B : %d\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", tailleStation(&stationB));
                 printf("%s\n",metroDessin);
                 Sleep(300);
             }
