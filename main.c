@@ -9,28 +9,27 @@
 
 /* ***************************************** MAIN **************************************/
 
-void affichageConsole(char *metroDessin,int position,Pile *metro,File *stationA,File *stationB){
+void affichageConsole(char *metroDessin,int position,Pile *metro,File *stationA,File *stationB,int direction){
     int i;
 
     metroDessin[position]='=';
-    metroDessin[position+1]='o';
+    if(direction == 0){
+       metroDessin[position+1]='>';
+    }else{
+        metroDessin[position-1]='<';
+    }
+
 
     printf("Nombre de personnes dans le metro : %d\n", tailleMetro(&metro));
-    for(i=0;i< tailleMetro(&metro);i++){
-        printf("|");
-    }
+    for(i=0;i< tailleMetro(&metro);i++){ printf("|");}
     printf("\n");
 
     printf("Nombre de personnes dans la station A : %d\n", tailleStation(&stationA));
-    for(i=0;i< tailleStation(&stationA);i++){
-        printf("|");
-    }
+    for(i=0;i< tailleStation(&stationA);i++){ printf("|");}
     printf("\n");
 
     printf("Nombre de personnes dans la station B : %d\n", tailleStation(&stationB));
-    for(i=0;i< tailleStation(&stationB);i++){
-        printf("|");
-    }
+    for(i=0;i< tailleStation(&stationB);i++){printf("|");}
     printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
     printf("%s\n",metroDessin);
@@ -38,14 +37,16 @@ void affichageConsole(char *metroDessin,int position,Pile *metro,File *stationA,
     Sleep(300);
 }
 
-int main()
-{
+int main(){
     printf("*************Bienvenue sur la simulation d'un mini métro*************\n\n");
 
     char metroDessin[] = "{A}=>========={B}";
     int direction = 0; // 0 droite, 1 gauche
     int position = 4; // position de départ dans la chaine du métro
     int nbPersonneChangement = 0;
+
+    int debutLigneMetro = 3;
+    int finLigneMetro = strlen(metroDessin)-debutLigneMetro-1;
 
     listeChainee *listeStation = NULL;
 
@@ -59,12 +60,12 @@ int main()
 
     while(1){
         if(direction == 0){
-            for(position = 3;position<13;position++){
+            for(position=debutLigneMetro ; position<finLigneMetro ; position++){
                 if(position%2==0){
                     remplissageStation(&stationA,position);
                 }
                 remplissageStation(&stationB,position);
-                affichageConsole(metroDessin,position,metro,stationA,stationB);
+                affichageConsole(metroDessin,position,metro,stationA,stationB,direction);
             }
             videMetro(&metro);
             for(nbPersonneChangement = 0;nbPersonneChangement<tailleStation(&stationB);nbPersonneChangement++){
@@ -74,12 +75,12 @@ int main()
             direction=1;
         }
         else{
-            for(position = 13;position>3;position--){
+            for(position=finLigneMetro ; position>debutLigneMetro ; position--){
                 if(position%2==0){
                     remplissageStation(&stationA,position);
                 }
                 remplissageStation(&stationB,position);
-                affichageConsole(metroDessin,position,metro,stationA,stationB);
+                affichageConsole(metroDessin,position,metro,stationA,stationB,direction);
             }
             videMetro(&metro);
             for(nbPersonneChangement = 0;nbPersonneChangement<tailleStation(&stationA);nbPersonneChangement++){

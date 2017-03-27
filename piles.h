@@ -16,6 +16,5 @@ int sortiePersonneMetro(Pile **p_p_pile);
 void videMetro(Pile **p_p_pile);
 
 int tailleMetro(Pile **p_p_pile);
-void ajouterEnFin(listeChainee *liste, File *station);
 
 #endif //MINIMETRO_PILES_H

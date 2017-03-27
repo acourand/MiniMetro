@@ -46,3 +46,18 @@
 1490619315 c:\users\florent\documents\work\telecom\info\minimetro\listes.h
 	"files.h"
 
+1490622182 source:c:\users\florent\documents\work\telecom\info\minimetro\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"files.h"
+	"piles.h"
+	"listes.h"
+
+1490623364 c:\users\florent\documents\work\telecom\info\minimetro\piles.h
+	"listes.h"
+
+1490619316 source:c:\users\florent\documents\work\telecom\info\minimetro\piles.c
+	"piles.h"
+	<stdlib.h>
+

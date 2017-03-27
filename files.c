@@ -7,8 +7,7 @@
 
 
 
-void
-remplissageStation(File **p_p_file, int personne) // permet d'ajouter une personne dans une station (en queue de file)
+void remplissageStation(File **p_p_file, int personne) // permet d'ajouter une personne dans une station (en queue de file)
 {
     File *p_nouveau = malloc(sizeof *p_nouveau); // On créé un nouvel element
 
